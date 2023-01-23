@@ -1,0 +1,79 @@
+<div class="container">
+  <form
+    [formGroup]="userForm"
+    (ngSubmit)="saveClient()">
+  <div class="card" style="height: 30rem;">
+    <div class="row no-gutters justify-content-center align-items-center" style="height: 20rem;">
+      <div class="col-sm-4">
+        <img class="card-img align-items-center" src="./assets/images/user.png" alt="UserIcon">
+      </div>
+      <div class="col-sm-8 align-items-center align-self-baseline">
+        <br>
+        <div class="row">
+
+          <table class="table table-borderless" style="color: #FFFFFF; max-width: 75%; margin-left:30px; font-size: 1.5rem">
+            <tbody>
+            <tr>
+              <td>Imię:</td>
+              <input type="text" class="form-control" formControlName="name" >
+              <div *ngIf="(this.userForm.get('name')?.invalid && this.userForm.get('name')?.touched)">
+                <small class="text-danger">Imie jest wymagane!</small>
+              </div>
+            </tr>
+            <tr>
+              <td>Nazwisko:</td>
+              <input required type="text" class="form-control" formControlName="surname">
+              <div *ngIf="this.userForm.get('surname')?.invalid && this.userForm.get('surname')?.touched">
+                <small class="text-danger">Nazwisko jest wymagane!</small>
+              </div>
+            </tr>
+            <tr>
+              <td>Email: </td>
+              <input required type="text" class="form-control" formControlName="email">
+              <div *ngIf="this.userForm.get('email')?.invalid && this.userForm.get('email')?.touched">
+                <small class="text-danger">Email np. (user@example.com)</small>
+              </div>
+            </tr>
+            <tr>
+              <td>Password: </td>
+              <input required minlength="8" type="text" class="form-control" formControlName="password">
+              <div *ngIf="this.userForm.get('password')?.invalid && this.userForm.get('password')?.touched">
+                <small class="text-danger">Hasło jest wymagane! (min. 8 znaków)</small>
+              </div>
+            </tr>
+            <tr>
+              <td>Telefon: </td>
+              <input required type="text" class="form-control" formControlName="phone">
+              <div *ngIf="this.userForm.get('phone')?.invalid && this.userForm.get('phone')?.touched">
+                <small class="text-danger">Telefon jest wymagany!</small>
+              </div>
+            </tr>
+            <tr>
+              <td>Data urodzenia:</td>
+              <input required type="date" class="form-control" formControlName="birthdate">
+              <div *ngIf="this.userForm.get('birthdate')?.invalid && this.userForm.get('birthdate')?.touched">
+                <small class="text-danger">Data urodzenia jest wymagana!</small>
+              </div>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-8"></div>
+    <div class="col-md-2">
+      <button class="btn back" type="submit" *ngIf="add">Dodaj</button>
+      <button class="btn back" type="submit" *ngIf="!add">Edytuj</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn back" (click)="onReturn()">Powrót</button>
+    </div>
+  </div>
+  </form>
+</div>
+
+

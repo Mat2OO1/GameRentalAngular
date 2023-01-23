@@ -1,0 +1,36 @@
+.card {
+  background-color: #0E1730;
+  color: #FFFFFF;
+  border-radius: 50px;
+  margin-top: 20px;
+
+}
+
+.card:hover {
+  background-color: #24258F;
+}
+
+img {
+  border-radius: 30px;
+  height: 6rem;
+  margin: 1rem;
+  padding-left: 0.5rem;
+  width: auto;
+}
+
+
+.available{
+  color: #62D18A
+}
+
+div h5 {
+  font-size: 1.5rem;
+}
+
+.back{
+  display:inline-block;
+  font-size: 1.6rem;
+  width:100%;
+  background-color: #88738E;
+  color: #FFFFFF
+}

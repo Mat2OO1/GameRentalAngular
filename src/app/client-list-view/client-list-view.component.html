@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card" style="height: 8rem;" *ngFor="let client of clients" (click)="onClick(client)">
+    <div class="row no-gutters justify-content-center align-items-center ">
+      <div class="col-lg-4">
+        <img class="card-img" src="./assets/images/user.png" alt="userIcon">
+      </div>
+        <div class="col-md-4">
+          <h5>{{client.name}}  {{client.surname}}</h5>
+        </div>
+        <div class="col-md-4">
+          <h5>Wypożyczenia: {{getNumberOfRentals(client.id)}}</h5>
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-2">
+      <button class="btn back" (click)="onAddClient()">Dodaj klienta</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn back" routerLink="">Powrót</button>
+    </div>
+
+</div>
+</div>

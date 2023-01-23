@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="card" style="height: 30rem;">
+    <div class="row no-gutters justify-content-center align-items-center" style="height: 20rem;">
+      <div class="col-sm-4">
+        <img class="card-img align-items-center" src="./assets/images/user.png" alt="UserIcon">
+      </div>
+      <div class="col-sm-8 align-items-center align-self-baseline">
+        <br>
+        <div class="row">
+        <table class="table table-borderless" style="color: #FFFFFF; max-width: 60%; margin-left:30px; font-size: 1.5rem">
+          <tbody>
+          <tr>
+            <td>Imię:</td>
+            <td>{{client.name}}</td>
+          </tr>
+          <tr>
+            <td>Nazwisko:</td>
+            <td>{{client.surname}}</td>
+          </tr>
+          <tr>
+            <td>Email: </td>
+            <td>{{client.account.email}}</td>
+          </tr>
+          <tr>
+            <td>Telefon: </td>
+            <td>{{client.phone_number}}</td>
+          </tr>
+          <tr>
+            <td>Data urodzenia:</td>
+            <td>{{client.birthdate | date:"dd.MM.yyyy" }}</td>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <h6>Wypożyczenia:</h6>
+            <ul>
+              <li *ngFor="let rental of rentals">
+                {{rental.game.title}}  ({{rental.returnDate |date:"dd.MM.yyyy"}})</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h6>Rezerwacje:</h6>
+            <ul>
+              <li *ngFor="let reservation of reservations">
+                {{reservation.game.title}}  ({{reservation.startDate|date:"dd.MM.yyyy"}} -
+                {{reservation.startDate|date:"dd.MM.yyyy"}})</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-6"></div>
+    <div class="col-md-2">
+      <button class="btn back" (click)="onEditClick()">Edytuj</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn back" data-toggle="modal" data-target="#exampleModal1">Usuń</button>
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn back" routerLink="/clients">Powrót</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: #242582; color: #FFFFFF">
+      <div class="modal-body">
+        <br>
+        <h6>Czy na pewno chcesz usunąć klienta {{client.name}} {{client.surname}}?</h6>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" style="background-color: #88738E; color:#FFFFFF" data-dismiss="modal">Anuluj</button>
+        <button type="button" class="btn btn-white"  style="background-color: #88738E;color:#FFFFFF"data-dismiss="modal"  data-toggle="modal" data-target="#modalSuccessful" (click)="onDelete()">Tak</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalSuccessful" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background-color: #242582; color: #FFFFFF">
+      <div class="modal-body">
+        <br>
+        <h6 *ngIf="deleted">Użytkownik usunięty pomyślnie</h6>
+        <h6 *ngIf="!deleted">Nie można usunąć klienta, posiada on wypożyczenia lub rezerwacje.</h6>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" style="background-color: #88738E; color:#FFFFFF" data-dismiss="modal" (click)="redirect()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

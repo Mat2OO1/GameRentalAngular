@@ -1,0 +1,26 @@
+<div class="container"*ngIf="isDataLoaded">
+  <div class="card" style="height: 12rem;" *ngFor="let game of games" (click)="onClick(game.id)">
+    <div class="row no-gutters justify-content-center align-items-center ">
+      <div class="col-lg-3">
+        <img class="card-img" src="{{game.imgpath}}" alt="{{game.title}}">
+      </div>
+      <div class="col-md-3">
+        <h5>{{game.title}}</h5>
+      </div>
+      <div class="col-md-2">
+        <h5>{{game.platform.name}}</h5>
+      </div>
+      <div class="col-lg-2">
+        <h5 class="available" *ngIf="!game._rented && !game._reserved">dostepne</h5>
+        <h5 class="unavailable" *ngIf="game._rented || game._reserved">niedostępne</h5>
+
+      </div>
+      <div class="col-lg-2">
+        <h5>{{game.value}} PLN/mc</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn back" routerLink="../">Powrót</button>
+  </div>
+</div>

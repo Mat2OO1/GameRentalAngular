@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+nav .logo {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 72px;
+  margin-left: 10px;
+  color: #F64C72;
+}
+
+nav .title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 72px;
+  color: #FFFF;
+  margin-right: 20px;
+}
+
+nav .elem {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-size: 20px;
+  line-height: 72px;
+  color: #FFFF;
+  margin-right: 20px;
+}
